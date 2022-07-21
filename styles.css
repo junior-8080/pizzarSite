@@ -3,7 +3,7 @@
 Fonts
 ===============
 */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
 
 /*
 =============== 
@@ -44,7 +44,7 @@ Variables
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-black: #222;
   --ff-primary: "Roboto", sans-serif;
-  --ff-secondary: "Open Sans", sans-serif;
+  --ff-secondary: 'Maven Pro', sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -68,13 +68,18 @@ Global Styles
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: var(--ff-secondary);
+  font-family: var(--ff-secondary) !important;
   background: var(--clr-grey-10);
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
 }
+
 
 ul {
   list-style-type: none;
@@ -92,7 +97,7 @@ h4 {
   text-transform: capitalize;
   line-height: 1.25;
   margin-bottom: 0.75rem;
-  font-family: var(--ff-primary);
+  font-family: var(--ff-secondary) !important;
 }
 
 h1 {
@@ -142,8 +147,11 @@ p {
   h3,
   h4 {
     line-height: 0.8rem;
-    
   }
+  /* i {
+    font-family: var(--ff-secondary) !important;
+  } */
+
 }
 
 /*  global classes */
@@ -165,11 +173,11 @@ p {
   }
 }
 
-main {
+/* main {
   min-height: 100vh;
   display: grid;
   place-items: center;
-}
+} */
 
 /*
 =============== 
@@ -179,6 +187,9 @@ Navbar
 nav {
   background: var(--clr-white);
   box-shadow: var(--light-shadow);
+  position: sticky;
+  top:0;
+  z-index:100;
 }
 
 .nav-header {
@@ -224,9 +235,7 @@ nav {
   text-decoration: none;
 }
 
-.social-icons {
-  display: none;
-}
+
 
 .links {
   height: 0;
@@ -238,7 +247,122 @@ nav {
   height: 10rem;
 }
 
-@media screen and (min-width: 800px) {
+.footer  > ul {
+  display: flex;
+}
+
+.footer  > ul > li > a > i{
+  color:#fff;
+}
+.nav-center  > .social-icons {
+  display: none;
+} 
+
+.social-icons a {
+  margin: 0 0.5rem;
+  color: #553f79;
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  color: var(--clr-primary-7);
+}
+
+/* over-ride */
+.card-title {
+  font-size: 1rem;
+}
+
+.sizes {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color:#434039
+}
+
+.cedi-sign {
+  font-size: small;
+  margin-right: .1em;
+  margin-left: .1em;
+}
+
+
+section>h2 {
+  text-align: center;
+}
+.main-section {
+  text-align: center;
+  margin-bottom: 5em;
+  padding:0.5em;
+
+}
+.main-section > h2 {
+  margin-bottom: 1em;
+}
+
+.section-row  > p {
+  padding:0.5em;
+}
+.price {
+  color:#953a2d;
+  font-weight: bold;
+}
+
+
+
+.contact {
+  color:#953a2d;
+  margin-top:2em; 
+}
+.main-section-animate {
+  visibility: visible;
+  animation-duration: 2s;
+}
+.static-img {
+  width:80%;
+}
+
+.static-img img {
+  width:100%;
+}
+.call-item  div {
+  display:flex;
+  justify-content: space-between
+}
+.call-item p {
+  padding: 0.2em;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.footer {
+  color:#fff;
+  background-color: #434039;
+  padding:2em;
+
+}
+.call-item  div {
+  width: 5%;
+}
+
+.footer p {
+   font-size:13px;
+   text-align:center;
+   color:#fff;
+}
+
+.footer div {
+  margin-top: .5em;
+}
+.order-campaign {
+  margin-top: 2em;
+}
+.order-campaign h4 {
+  font-style: italic
+}
+
+@media screen and (min-width: 480px) {
   .nav-center {
     max-width: 1170px;
     margin: 0 auto;
@@ -270,79 +394,35 @@ nav {
     padding: 0;
     background: transparent;
   }
-
-  .social-icons {
+ .section-row{
     display: flex;
+    justify-content: center;
   }
-
-  .social-icons a {
-    margin: 0 0.5rem;
-    color: #553f79;
-    transition: var(--transition);
+  .main-section {
+    font-size: 1em
+    max-width: 80%;
+    margin-left:auto;
+    margin-right:auto;
   }
-
-  .social-icons a:hover {
-    color: var(--clr-primary-7);
+  .call-item  div {
+    width: 20%;
   }
-}
-
-/* over-ride */
-.card-title {
-  font-size: 1rem;
-}
-
-.sizes {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  color:#434039
-}
-
-.cedi-sign {
-  font-size: small;
-  margin-right: .1em;
-  margin-left: .1em;
-}
-
-section>.sec {
+  .footer {
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    font-size:16px;
+  }
+  .footer p {
+    font-size:16px;
+ }
+ .footer > ul {
+   display: none;
+ }
+ .social-icons {
   display: flex;
 }
+.nav-center  > .social-icons {
+  display: inline-flex;
+} 
 
-section>h2 {
-  text-align: center;
-}
-
-/* section+ section {
-  margin-bottom: 1em;
-} */
-/* .section-row {
-  display: flex;
-  justify-content: center;
-
-} */
-.main-section {
-  text-align: justify;
-  margin-bottom: 5em;
-  /* visibility: hidden; */
-}
-.main-section > h2 {
-  margin-bottom: 1em;
-}
-.price {
-  color:#953a2d;
-  font-weight: bold;
-}
-
-footer {
-  color:#fff;
-  background-color: #434039;
-  padding:5rem;
-}
-.contact {
-  color:#953a2d;
-  margin-top:2em; 
-}
-.main-section-animate {
-  visibility: visible;
-  animation-duration: 2s;
-}
